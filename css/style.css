@@ -86,10 +86,50 @@
     border-radius: 20px 0 0 20px;
 }
 
+.btn_s {
+    position: relative;
+    display: flex;
+    align-items: center;
+    align-self: center;
+    justify-content: flex-end;
+    overflow: hidden;
+    width: 24px;
+    transition: 0.5s;
+    border-radius: 2px;
+    margin: 4px 0 0 0;
+}
+
+.btn_s:hover {
+    width: 62px;
+}
+
+.btn_s strong {
+    width: 0;
+    font-size: 18px;
+    overflow: hidden;
+    transition: 0.5s;
+}
+
+.btn_s:hover strong {
+    width: 100%;
+    transform: translate(0, 0);
+}
+
+.btn_s span {
+    vertical-align: middle;
+}
+
+
+.gls {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
 .inner {
     max-width: 1600px;
     width: 100%;
-    margin: 0 auto;
+    margin: 0 85px 0 auto;
     padding: 0 15px;
 }
 
@@ -119,8 +159,9 @@
     align-items: end;
     height: 100vh;
     width: 140px;
-    background: var(--mc);
-    border-right: 1px solid var(--rc);
+    background-color: rgba(157, 190, 228, 0.7);
+
+
 }
 
 .header .header_wrap .gnb {
@@ -196,6 +237,10 @@
     line-height: 1;
     animation-name: grow;
     animation-duration: 1s;
+}
+
+.home .slogan .left .name .gr01 {
+    animation-duration: 1.5s;
 }
 
 @keyframes grow {
@@ -318,15 +363,18 @@
 }
 
 .slide .content {
-    display: flex;
-    justify-content: space-between;
     position: relative;
+    display: flex;
     gap: 30px;
 }
 
+.slide .content>* {
+    flex: 1;
+}
+
+
 .slide .content .pd {
-    padding: 0 36px;
-    margin: 0 0 0 72px;
+    margin: 0 80px 0 0;
 }
 
 
@@ -477,7 +525,6 @@
     /* background: rgba(255, 255, 255, 0.7); */
     align-items: center;
     align-self: center;
-    width: 500px;
 }
 
 .slide .txt_box .top {
@@ -566,6 +613,7 @@
 .slide .txt_box .tool .info {
     display: flex;
     flex-direction: column;
+    width: 550px;
 }
 
 .slide .txt_box .tool .info>p {
@@ -694,8 +742,8 @@
 
 .slide .img_box .mb_l {
     position: absolute;
-    top: 45%;
-    left: -5%;
+    top: 55%;
+    left: 5%;
     background: rgba(241, 241, 241, 0.8);
     padding: 12px;
     box-shadow: 0 0 4px #0000003f;
@@ -709,8 +757,8 @@
 
 .slide .img_box .mb_r {
     position: absolute;
-    top: 45%;
-    right: -5%;
+    top: 55%;
+    right: 7%;
     background: rgba(241, 241, 241, 0.8);
     padding: 12px;
     box-shadow: 0 0 4px #0000003f;
@@ -722,66 +770,185 @@
 }
 
 
+
+
 .training {
-    /* background: url(../images/bg.png); */
-}
-
-.training .content {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-}
-
-.training .content .tit {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 80px;
-    font-weight: 800;
-}
-
-.training .content .tit h2 {
-    color: transparent;
-    /* background: url(../images/point.png) left; */
-    background: linear-gradient(90deg, var(--mc), var(--pc), var(--fc));
-    -webkit-background-clip: text;
-    border-bottom: 4px solid var(--fc);
-}
-
-.training .content .tr_box {
-    position: relative;
-    background: rgba(223, 223, 223, 0.4);
-    padding: 24px 16px 16px 16px;
-    box-shadow: 4px 4px 10px #00000034;
-    /* overflow: hidden; */
-}
-
-.training .content .tr_box::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 8px;
-    background: var(--pc);
-    transition: 0.8s;
-}
-
-.training .content .tr_box:hover::before {
-    height: 12px;
-    background: linear-gradient(90deg, var(--mc), var(--pc), var(--fc));
-}
-
-.training .content .tr_box figure {
+    background: url(../images/bg.png);
+    height: 100vh;
     overflow: hidden;
 }
 
-.training .content .tr_box figure img {
+.training .list {
+    position: relative;
+    height: 100%;
+}
+
+.training .tab {
+    display: flex;
+    align-self: center;
+}
+
+.training .tab .content {
+    position: absolute;
+    top: 50%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    align-items: center;
+    height: 100%;
+    z-index: 999;
+
+}
+
+.training .list .tab_menu {
+    font-size: 32px;
+
+}
+
+.training .list .tab_menu li {
+    cursor: pointer;
+}
+
+.training .list .tab_menu li~li {
+    margin: 40px 0 0 0;
+}
+
+.training .list .tab_menu li strong {
+    position: relative;
+    font-weight: 600;
+    padding: 0 4px;
+}
+
+.training .list .tab_menu li strong::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 40%;
+    background: var(--rc);
+    z-index: -1;
     transition: 0.5s;
 }
 
-.training .content .tr_box figure:hover img {
-    transform: scale(1.1);
+.training .list .tab_menu li strong:hover::before {
+    width: 100%;
+}
+
+.training .list .tab_menu li.on strong::before {
+    background: var(--fc);
+    width: 100%;
+}
+
+.training .list .tab_bg {
+    background: url(../images/tr03.PNG) no-repeat center center/cover;
+}
+
+.training .list .tab_bg .ftr {
+    height: 100%;
+    color: #ffffff67;
+}
+
+.training .trn {
+    height: 800px;
+    align-self: flex-end;
+}
+
+.training .trn .tab_img {
+    height: 100%;
+}
+
+.training .trn .tab_img li {
+    position: relative;
+    transform: translate(0, 100%);
+    height: 0;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    transition: 0.5s;
+}
+
+.training .trn .tab_img li.on {
+    transform: translate(0, 0);
+    border-radius: 50px 50px 0 0;
+    height: 100%;
+}
+
+.training .trn .tab_img figure {
+    padding: 50px;
+    background: rgba(255, 255, 255, 0.4);
+    height: 100%;
+
+    border-radius: 50px 50px 0 0;
+}
+
+.training .trn .tab_img figure img {
+    border-radius: 20px;
+}
+
+
+
+.training .trn .tab_img li .txt_box {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 50px;
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    border-radius: 50px 50px 0 0;
+    height: 275px;
+    width: 100%;
+}
+
+.training .trn .tab_img li .txt_box strong {
+    display: block;
+    font-size: 32px;
+    font-weight: 600;
+    margin: 0 0 16px 0;
+}
+
+.training .trn .tab_img li .cate_box {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    bottom: 0;
+    left: 0;
+    padding: 45px;
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    border-radius: 50px 50px 0 0;
+    height: 110px;
+    width: 100%;
+
+}
+
+.training .trn .tab_img li .cate_box dl {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 300;
+}
+
+.training .trn .tab_img li .cate_box dt {
+    position: relative;
+    margin: 0 40px 0 0;
+    color: #666;
+}
+
+.training .trn .tab_img li .cate_box dt::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: rotate(45deg);
+    width: 12px;
+    height: 12px;
+    border-right: 1px solid #666;
+    border-top: 1px solid #666;
+    margin: 6px -22px 0 0;
+}
+
+.training .trn .tab_img li .cate_box dd {
+    color: #222;
 }
 
 .profile {

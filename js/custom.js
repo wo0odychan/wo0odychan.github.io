@@ -39,6 +39,24 @@ SLIDE.addEventListener('wheel', (e) => {
 
 });
 
+const tabItem = document.querySelectorAll('.tab_menu li')
+const tabInner = document.querySelectorAll('.trn li')
+
+tabItem.forEach((tab, idx) => {
+    tab.addEventListener('click', function () {
+        tabInner.forEach((inner) => {
+            inner.classList.remove('on')
+        })
+
+        tabItem.forEach((item) => {
+            item.classList.remove('on')
+        })
+
+        tabItem[idx].classList.add('on')
+        tabInner[idx].classList.add('on')
+    })
+})
+
 
 const T = document.querySelector('.profile .flower');
 const TXT = document.querySelectorAll('.profile .flower span');
