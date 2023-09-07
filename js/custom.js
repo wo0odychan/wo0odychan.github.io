@@ -40,7 +40,9 @@ SLIDE.addEventListener('wheel', (e) => {
 });
 
 const tabItem = document.querySelectorAll('.tab_menu li')
-const tabInner = document.querySelectorAll('.trn li')
+const tabInner = document.querySelectorAll('.trn li');
+
+const tabBg = document.querySelector('.tab_bg');
 
 tabItem.forEach((tab, idx) => {
     tab.addEventListener('click', function () {
@@ -52,8 +54,10 @@ tabItem.forEach((tab, idx) => {
             item.classList.remove('on')
         })
 
-        tabItem[idx].classList.add('on')
-        tabInner[idx].classList.add('on')
+        tabItem[idx].classList.add('on');
+        tabInner[idx].classList.add('on');
+        tabBg.style.background = `url(../images/tr0${idx + 1}.png) no-repeat center center/cover`;
+
     })
 })
 
@@ -79,4 +83,7 @@ gsap.to(T, {
     duration: 10,
     repeat: -1,
     ease: 'linear'
-})
+});
+
+
+

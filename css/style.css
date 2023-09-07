@@ -212,19 +212,19 @@
 
 .home .slogan {
     position: relative;
-    display: flex;
+    /* display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-between; */
     height: 100vh;
 }
 
 .home .slogan .left {
+    position: fixed;
+    top: 5%;
+    left: 10%;
     display: flex;
     flex-direction: column;
-    height: 100%;
-    justify-content: flex-end;
-    margin: 0 auto 32px auto;
-    padding: 0 15px 52px 55px;
+    z-index: 9999;
 }
 
 .home .slogan .left .name {
@@ -253,19 +253,21 @@
     }
 }
 
-.home .slogan .left span {
+.home .slogan .left strong {
     position: relative;
+    display: block;
+    font-size: 20px;
     margin: 0 0 8px 0;
     z-index: 1;
 }
 
-.home .slogan .left strong {
+.home .slogan .left span {
     display: block;
     font-size: 24px;
     font-weight: 800;
 }
 
-.home .slogan .left span::before {
+.home .slogan .left strong::before {
     content: "";
     position: absolute;
     bottom: 0;
@@ -287,11 +289,20 @@
 
 .home .right {
     display: flex;
-    flex-direction: column;
-    justify-content: end;
+    height: 100%;
+    align-items: end;
+    justify-content: flex-end;
     text-align: right;
-    transform: skew(-10deg);
+    transform: skew(-10deg) translate(-50%, 0);
+    opacity: 0;
+    transition: 1s;
 }
+
+.home.on .right {
+    transform: skew(-10deg) translate(0, 0);
+    opacity: 1;
+}
+
 
 .home .right h2 {
     font-size: 400px;
@@ -305,7 +316,7 @@
     -webkit-background-clip: text;
     background-repeat: no-repeat;
     -webkit-transition: background-size 0.5s cubic-bezier(0.67, 0.01, 0.15, 0.98);
-    transition: background-size 2s 0.4s cubic-bezier(0.67, 0.01, 0.15, 0.98);
+    transition: background-size 2s 1s cubic-bezier(0.67, 0.01, 0.15, 0.98);
     background-image: radial-gradient(circle farthest-corner at center center, #e0ecfa 0%, #B9CEEB 50%, transparent 50%);
     background-position: 50% 50%;
     background-size: 0% 0%;
@@ -316,41 +327,6 @@
 }
 
 
-/* 
-.home .right {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    transform: translate(-50%, 0);
-    overflow: hidden;
-}
-
-
-.home .right .bg_video {
-    position: relative;
-    object-fit: cover;
-    top: 0;
-    left: 0;
-}
-
-.home .right h2 {
-    position: absolute;
-    display: flex;
-    background: #ffffff;
-    text-align: center;
-    font-size: 220px;
-    line-height: 140px;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    align-items: center;
-    justify-content: center;
-    mix-blend-mode: screen;
-    margin: 0;
-    font-weight: 900;
-    overflow: hidden;
-} */
 
 .project {
     overflow: hidden;
@@ -780,16 +756,31 @@
 
 .training .list {
     position: relative;
+    display: flex;
+    gap: 30px;
     height: 100%;
+}
+
+.training .list .tab_bg {
+    width: 1500px;
+    background: url(../images/tr01.png) no-repeat center center/cover;
+}
+
+.training .list .tab_bg .ftr {
+    height: 100%;
+    color: #ffffff67;
 }
 
 .training .tab {
     display: flex;
     align-self: center;
+    width: 50%;
 }
 
 .training .tab .content {
     position: absolute;
+    display: flex;
+    gap: 30px;
     top: 50%;
     left: 54%;
     transform: translate(-50%, -50%);
@@ -800,6 +791,7 @@
 }
 
 .training .list .tab_menu {
+    width: 800px;
     font-size: 32px;
 
 }
@@ -839,17 +831,11 @@
     width: 100%;
 }
 
-.training .list .tab_bg {
-    background: url(../images/tr03.PNG) no-repeat center center/cover;
-}
 
-.training .list .tab_bg .ftr {
-    height: 100%;
-    color: #ffffff67;
-}
 
 .training .trn {
     height: 800px;
+    width: 1300px;
     align-self: flex-end;
 }
 
@@ -881,7 +867,9 @@
 }
 
 .training .trn .tab_img figure img {
+    width: 100%;
     border-radius: 20px;
+    object-fit: cover;
 }
 
 
@@ -1014,7 +1002,6 @@
 }
 
 .profile .right {
-    background: rgba(255, 255, 255, 0.7);
     padding: 40px;
 }
 
