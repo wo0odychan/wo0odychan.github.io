@@ -12,6 +12,8 @@ new fullpage('#main', {
     controlArrows: false,
     loopHorizontal: false,
 
+    responsiveWidth: 768,
+
     afterLoad: function (origin, destination, direction, trigger) {
         console.log(destination.index, ASIDE[destination.index]);
         ASIDE.forEach(it => it.classList.remove('on'));
