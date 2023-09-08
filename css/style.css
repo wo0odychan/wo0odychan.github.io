@@ -326,6 +326,10 @@
     overflow: hidden;
 }
 
+.project .scroll {
+    display: none;
+}
+
 .slide {
     overflow: hidden;
     position: relative;
@@ -431,9 +435,11 @@
 
 
 .slide .txt_box {
+    position: relative;
     display: flex;
     align-items: center;
     align-self: center;
+    z-index: 1;
 }
 
 .slide .txt_box .top {
@@ -618,6 +624,7 @@
 
 .slide .img_box {
     position: relative;
+    z-index: 1;
 }
 
 .slide .img_box .web {
@@ -1005,9 +1012,9 @@
 
 @media (max-width:768px) {
 
-    * {
+    /* * {
         outline: 1px solid sandybrown;
-    }
+    } */
 
     .sec {
         padding: 100px 0;
@@ -1323,6 +1330,18 @@
         overflow: hidden;
     }
 
+    .project .scroll {
+        position: absolute;
+        display: block;
+        bottom: 2%;
+        right: 4%;
+        z-index: 2;
+        color: #fff;
+        background: var(--fc);
+        padding: 4px;
+    }
+
+
     .slide {
         overflow: hidden;
         position: relative;
@@ -1332,18 +1351,17 @@
     .slide .content {
         position: relative;
         display: flex;
-        gap: 30px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 0;
+        width: 100%;
+        height: 100%;
     }
 
-    .slide .content>* {
-        flex: 1;
+    .slide .od {
+        order: -1;
     }
-
-
-    .slide .content .pd {
-        margin: 0 80px 0 0;
-    }
-
 
     .slide01 {
         position: relative;
@@ -1438,29 +1456,29 @@
         display: flex;
         align-items: center;
         align-self: center;
+        width: 100%;
     }
-
-    .slide .txt_box .top {
-        margin: 0 0 40px 0;
-    }
-
 
     .t_num {
         display: block;
-        font-size: 550px;
+        font-size: 250px;
         font-weight: 800;
         color: #fff;
         text-shadow: 8px 4px 1px var(--pc);
         text-indent: -50px;
         position: absolute;
-        top: -150px;
-        right: -100px;
+        top: -50px;
+        right: -50px;
         z-index: 1;
 
         opacity: 0.3;
         transform: skew(-10deg);
     }
 
+    .slide .txt_box .tit {
+        width: 100%;
+        height: 100%;
+    }
 
     .slide .txt_box .bot {
         display: flex;
@@ -1468,12 +1486,12 @@
         align-items: end;
         border-bottom: 1px solid rgba(255, 255, 255, 0.5);
         padding: 0 0 8px 0;
-        margin: 0 0 20px 0;
-        width: 550px;
+        margin: 0 0 8px 0;
+        width: 100%;
     }
 
     .slide .txt_box .bot h2 {
-        font-size: 44px;
+        font-size: 32px;
         font-weight: 800;
     }
 
@@ -1483,7 +1501,7 @@
     }
 
     .slide .txt_box .tool {
-        margin: 0 0 24px 0;
+        margin: 0 0 12px 0;
     }
 
     .slide .txt_box .tool li~li {
@@ -1492,37 +1510,39 @@
 
     .slide .txt_box .tool li {
         display: flex;
-        font-size: 20px;
+        font-size: 16px;
         font-weight: 600;
         color: #222;
+        align-items: center;
     }
 
     .slide .txt_box .tool strong {
         display: block;
-        font-size: 20px;
+        font-size: 16px;
         font-weight: 600;
         color: #222;
-        width: 64px;
+        width: 60px;
     }
 
     .slide .txt_box .tool .info {
         display: flex;
         flex-direction: column;
-        width: 550px;
+        width: 100%;
+        align-items: flex-start;
     }
 
     .slide .txt_box .tool .info>p {
-        font-size: 16px;
+        font-size: 14px;
         font-weight: 400;
-        line-height: 22px;
+        line-height: 20px;
         color: #666;
         margin: 8px 0 0 0;
     }
 
     .slide .txt_box .tool li span {
-        font-size: 18px;
+        font-size: 14px;
         font-weight: 400;
-        line-height: 24px;
+        line-height: 12px;
         color: #666;
     }
 
@@ -1622,6 +1642,7 @@
 
     .slide .img_box {
         position: relative;
+        z-index: 1;
     }
 
     .slide .img_box .web {
@@ -1629,39 +1650,54 @@
         padding: 16px;
         box-shadow: 4px 4px 10px #00000034;
         border-radius: 5px;
+        margin: 0 0 24px 0;
     }
 
     .slide .img_box .web img {
         border-radius: 2px;
+
     }
 
     .slide .img_box .mb_l {
         position: absolute;
-        top: 55%;
-        left: 5%;
+        top: auto;
+        bottom: 0;
+        left: auto;
+        right: 0;
         background: rgba(241, 241, 241, 0.8);
         padding: 12px;
         box-shadow: 0 0 4px #0000003f;
         border-radius: 8px;
+        height: 160px;
+        width: 100px;
     }
 
 
     .slide .img_box .mb_l img {
         border-radius: 3px;
+        width: 100%;
+        height: 100%;
     }
+
 
     .slide .img_box .mb_r {
         position: absolute;
-        top: 55%;
-        right: 7%;
+        top: auto;
+        bottom: 0;
+        right: auto;
+        left: 0;
         background: rgba(241, 241, 241, 0.8);
         padding: 12px;
         box-shadow: 0 0 4px #0000003f;
         border-radius: 8px;
+        height: 160px;
+        width: 100px;
     }
 
     .slide .img_box .mb_r img {
         border-radius: 3px;
+        width: 100%;
+        height: 100%;
     }
 
 
