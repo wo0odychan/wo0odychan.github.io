@@ -12,7 +12,7 @@ new fullpage('#main', {
     controlArrows: false,
     loopHorizontal: false,
 
-    responsiveWidth: 768,
+    // responsiveWidth: 768,
 
     afterLoad: function (origin, destination, direction, trigger) {
         console.log(destination.index, ASIDE[destination.index]);
@@ -89,3 +89,14 @@ gsap.to(T, {
 
 
 
+const Mopen = document.querySelector('.mopen');
+const GNB = document.querySelector('.gnb');
+
+Mopen.addEventListener('click', function () {
+    Mopen.classList.toggle('on');
+    GNB.classList.toggle('on');
+});
+
+GNB.addEventListener('click', function () {
+    GNB.classList.remove('on');
+});
