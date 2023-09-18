@@ -99,4 +99,5 @@ Mopen.addEventListener('click', function () {
 
 GNB.addEventListener('click', function () {
     GNB.classList.remove('on');
+    Mopen.classList.remove('on');
 });
