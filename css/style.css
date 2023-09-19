@@ -342,7 +342,44 @@
     transition: 0.5s;
 }
 
+.project .scroll span {
+    position: relative;
+    font-size: 0;
+}
 
+.project .scroll span::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 21px;
+    height: 32px;
+    border: 1px solid #222;
+    border-radius: 15px 15px 20px 20px;
+}
+
+.project .scroll span::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 20%;
+    margin: 5px 0 0 9px;
+    width: 3px;
+    height: 8px;
+    background: #222;
+    border-radius: 15px 15px 20px 20px;
+    animation: scr 1.5s infinite;
+}
+
+@keyframes scr {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(0, 40%);
+    }
+}
 
 
 body.fp-viewing-PROFILE .project .scroll {
@@ -1227,6 +1264,7 @@ body.fp-viewing-PROFILE .project .scroll {
         }
     }
 
+
     .slide .content {
         flex-direction: column;
         justify-content: flex-start;
@@ -1516,7 +1554,7 @@ body.fp-viewing-PROFILE .project .scroll {
     }
 
     .profile .pr h2 {
-        font-size: 22px;
+        font-size: 24px;
     }
 
     .profile .edu {
@@ -1524,7 +1562,7 @@ body.fp-viewing-PROFILE .project .scroll {
     }
 
     .profile .edu strong {
-        font-size: 22px;
+        font-size: 24px;
     }
 
     .profile .edu li span {
@@ -1534,7 +1572,7 @@ body.fp-viewing-PROFILE .project .scroll {
 
 
     .profile .call strong {
-        font-size: 22px;
+        font-size: 24px;
     }
 
     .profile .call ul {
